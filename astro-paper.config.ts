@@ -2,15 +2,13 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    url: "https://astro-paper.pages.dev/",
-    title: "AstroPaper",
-    description: "A minimal, responsive and SEO-friendly Astro blog theme.",
-    author: "Sat Naing",
-    profile: "https://satna.ing",
-    ogImage: "default-og.jpg",
-    lang: "en",
-    timezone: "Asia/Bangkok",
-    dir: "ltr",
+  url: "https://studio-hub-olive.vercel.app/",
+  title: "PaLin Studio",
+  description: "Không gian chia sẻ đánh giá plugin âm thanh, kinh nghiệm mixing & mastering và tài nguyên phòng thu chuyên nghiệp của Music Producer & DJ PaLin.",
+  author: "PaLin",
+  lang: "vi",
+  timezone: "Asia/Ho_Chi_Minh",
+},
   },
   posts: {
     perPage: 4,
@@ -29,10 +27,18 @@ export default defineAstroPaperConfig({
     search: "pagefind",
   },
   socials: [
-    { name: "github",   url: "https://github.com/satnaing/astro-paper" },
-    { name: "x",        url: "https://x.com/username" },
-    { name: "linkedin", url: "https://www.linkedin.com/in/username/" },
-    { name: "mail",     url: "mailto:yourmail@gmail.com" },
+  {
+    name: "facebook",
+    url: "https://www.facebook.com/phankhanhlinh93vt",
+  },
+  {
+    name: "tiktok",
+    url: "https://www.tiktok.com/@palinofficial",
+  },
+  {
+    name: "mail",
+    url: "mailto:phankhanhlinh1993xdvt@gmail.com",
+  },
   ],
   shareLinks: [
     { name: "whatsapp", url: "https://wa.me/?text=" },
