@@ -26,26 +26,26 @@ export default defineAstroPaperConfig({
     },
     search: "pagefind",
   },
-  socials: [
-  {
-    name: "facebook",
-    url: "https://www.facebook.com/phankhanhlinh93vt",
-  },
-  {
-    name: "tiktok",
-    url: "https://www.tiktok.com/@palinofficial",
-  },
-  {
-    name: "mail",
-    url: "mailto:phankhanhlinh1993xdvt@gmail.com",
-  },
+socials: [
+    {
+      name: "facebook",
+      url: "https://www.facebook.com/phankhanhlinh93vt",
+    },
+    {
+      name: "tiktok",
+      url: "https://www.tiktok.com/@palinofficial",
+    },
+    {
+      name: "mail",
+      url: "mailto:phankhanhlinh1993xdvt@gmail.com",
+    },
   ],
   shareLinks: [
     { name: "whatsapp", url: "https://wa.me/?text=" },
     { name: "facebook", url: "https://www.facebook.com/sharer.php?u=" },
-    { name: "x",        url: "https://x.com/intent/post?url=" },
+    { name: "x", url: "https://x.com/intent/post?url=" },
     { name: "telegram", url: "https://t.me/share/url?url=" },
     { name: "pinterest", url: "https://pinterest.com/pin/create/button/?url=" },
-    { name: "mail",     url: "mailto:?subject=See%20this%20post&body=" },
+    { name: "mail", url: "mailto:?subject=See%20this%20post&body=" },
   ],
 });
