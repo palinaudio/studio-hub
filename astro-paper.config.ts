@@ -21,7 +21,6 @@ export default defineAstroPaperConfig({
     showBackButton: true,
     editPost: {
       enabled: false,
-      url: "https://github.com/palinaudio/studio-hub/edit/main/",
     },
     search: "pagefind",
   },
