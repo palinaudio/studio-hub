@@ -6,7 +6,7 @@ export default defineAstroPaperConfig({
     title: "PaLin Studio",
     description: "Không gian chia sẻ đánh giá plugin âm thanh, kinh nghiệm mixing & mastering và tài nguyên phòng thu chuyên nghiệp của Music Producer & DJ PaLin.",
     author: "PaLin",
-    lang: "vi",
+    lang: "en",
     timezone: "Asia/Ho_Chi_Minh",
   },
   posts: {
