@@ -2,13 +2,12 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-  url: "https://studio-hub-olive.vercel.app/",
-  title: "PaLin Studio",
-  description: "Không gian chia sẻ đánh giá plugin âm thanh, kinh nghiệm mixing & mastering và tài nguyên phòng thu chuyên nghiệp của Music Producer & DJ PaLin.",
-  author: "PaLin",
-  lang: "vi",
-  timezone: "Asia/Ho_Chi_Minh",
-},
+    url: "https://studio-hub-olive.vercel.app/",
+    title: "PaLin Studio",
+    description: "Không gian chia sẻ đánh giá plugin âm thanh, kinh nghiệm mixing & mastering và tài nguyên phòng thu chuyên nghiệp của Music Producer & DJ PaLin.",
+    author: "PaLin",
+    lang: "vi",
+    timezone: "Asia/Ho_Chi_Minh",
   },
   posts: {
     perPage: 4,
@@ -16,17 +15,17 @@ export default defineAstroPaperConfig({
     scheduledPostMargin: 15 * 60 * 1000,
   },
   features: {
-    lightAndDarkMode: true,
+    lightDarkMode: true,
     dynamicOgImage: true,
     showArchives: true,
     showBackButton: true,
     editPost: {
-      enabled: true,
-      url: "https://github.com/satnaing/astro-paper/edit/main/",
+      enabled: false,
+      url: "https://github.com/palinaudio/studio-hub/edit/main/",
     },
     search: "pagefind",
   },
-socials: [
+  socials: [
     {
       name: "facebook",
       url: "https://www.facebook.com/phankhanhlinh93vt",
