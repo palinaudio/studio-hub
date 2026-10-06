@@ -27,11 +27,11 @@ const homePath = getRelativeLocaleUrl(locale, "");
 <Layout>
   <Header />
   <main id="main-content" data-layout="index" data-home-path={homePath} class="mx-auto max-w-4xl px-4">
-    <!-- Hero Section: Responsive 2 cột trên Desktop, 1 cột trên Mobile -->
+    <!-- Hero Section: 2 cột trên Desktop, 1 cột trên Mobile -->
     <section id="hero" class="border-border border-b pt-8 pb-8">
       <div class="flex flex-col-reverse items-center justify-between gap-8 md:flex-row md:items-start">
         
-        <!-- Cột trái: Văn bản & Call-to-action -->
+        <!-- Cột trái: Văn bản & Liên kết -->
         <div class="w-full md:w-3/5">
           <div class="flex items-center gap-3">
             <h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl">
@@ -65,7 +65,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
             Nơi đam mê âm thanh giao thoa cùng chuẩn mực kỹ thuật phòng thu. Tôi là <strong>PaLin</strong> — Music Producer, DJ và Sound Engineer. Tại đây, tôi chia sẻ các đánh giá chuyên sâu về audio plugins, bí quyết mixing & mastering thực chiến, cùng những giải pháp tối ưu chất âm analog đỉnh cao cho cộng đồng làm nhạc.
           </p>
 
-          <!-- Nút bấm Zalo chuyên nghiệp & Cụm Social -->
+          <!-- Nút bấm Zalo & Cụm Social -->
           <div class="mt-6 flex flex-wrap items-center gap-4">
             <a
               href="https://zalo.me/0966383433"
@@ -109,7 +109,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
                 </svg>
               </a>
 
-              <!-- Gmail Web Link -->
+              <!-- Gmail -->
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=phankhanhlinh1993xdvt@gmail.com"
                 target="_blank"
@@ -126,7 +126,7 @@ const homePath = getRelativeLocaleUrl(locale, "");
           </div>
         </div>
 
-        <!-- Cột phải: Chân dung Hero chuẩn Retina (Tối ưu CLS & LCP) -->
+        <!-- Cột phải: Chân dung Hero chuẩn Retina -->
         <div class="flex w-full justify-center md:w-2/5 md:justify-end">
           <div class="relative">
             <img
@@ -143,6 +143,24 @@ const homePath = getRelativeLocaleUrl(locale, "");
         </div>
 
       </div>
+    </section>
+
+    <!-- Khu vực Banner Thiết bị & Không gian phòng thu (Studio Workspace) -->
+    <section class="border-border border-b py-8">
+      <div class="overflow-hidden rounded-2xl border border-border shadow-md">
+        <img
+          src="/studio-workspace.webp"
+          alt="Không gian phòng thu và hệ thống thiết bị âm thanh PaLin Studio"
+          width="1200"
+          height="630"
+          loading="lazy"
+          decoding="async"
+          class="h-auto w-full object-cover transition-transform duration-300 hover:scale-[1.01]"
+        />
+      </div>
+      <p class="mt-2 text-center text-xs text-skin-base/70">
+        Không gian sản xuất âm nhạc & hệ thống thiết bị phần cứng tại PaLin Studio
+      </p>
     </section>
 
     <!-- Featured Section -->
