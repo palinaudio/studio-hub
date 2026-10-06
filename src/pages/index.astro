@@ -1,48 +1,52 @@
 ---
 import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import IconRss from "@/assets/icons/IconRss.svg";
+import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import LinkButton from "@/components/LinkButton.astro";
 import Card from "@/components/Card.astro";
-import Socials from "@/components/Socials.astro";
-import getSortedPosts from "@/utils/getSortedPosts";
-import { SITE, SOCIALS } from "@/config";
+import LinkButton from "@/components/LinkButton.astro";
+import { getSortedPosts } from "@/utils/getSortedPosts";
+import { useTranslations } from "@/i18n";
+import config from "@/config";
 
-const posts = await getCollection("blog");
+const { posts: postsConfig } = config;
 
+const locale = Astro.currentLocale ?? config.site.lang;
+const t = useTranslations(locale);
+
+const posts = await getCollection("posts");
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
-
-const socialCount = SOCIALS.filter(social => social.active).length;
+const homePath = getRelativeLocaleUrl(locale, "");
 ---
 
 <Layout>
   <Header />
-  <main id="main-content">
-    <section id="hero">
-      <h1 class="mr-2">PaLin Studio</h1>
+  <main id="main-content" data-layout="index" data-home-path={homePath}>
+    <section id="hero" class="border-border border-b pt-8 pb-6">
+      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
+        PaLin Studio
+      </h1>
       <a
         target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
+        href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/rss.xml`}
+        class="inline-block"
+        aria-label="RSS Feed"
         title="RSS Feed"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon">
-          <path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path>
-          <path
-            d="M12 20.001c0-4.41-3.59-8-8-8v2c3.309 0 6 2.691 6 6h2z"
-          ></path>
-          <circle cx="6" cy="18" r="2"></circle>
-        </svg>
+        <IconRss
+          width={20}
+          height={20}
+          class="stroke-accent scale-125 stroke-3 rtl:rotate-90"
+        />
         <span class="sr-only">RSS Feed</span>
       </a>
 
-      <p>
+      <p class="my-2 text-base leading-relaxed">
         Nơi đam mê âm thanh giao thoa cùng chuẩn mực kỹ thuật phòng thu. Tôi là <strong>PaLin</strong> — Music Producer, DJ và Sound Engineer. Tại đây, tôi chia sẻ các đánh giá chuyên sâu về audio plugins, bí quyết mixing & mastering thực chiến, cùng những giải pháp tối ưu chất âm analog đỉnh cao cho cộng đồng làm nhạc.
       </p>
 
@@ -58,51 +62,88 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </a>
       </p>
 
-      {
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      }
-    </section>
+      <div class="mt-4 flex max-sm:flex-col sm:items-center">
+        <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">
+          Social Links:
+        </div>
+        <div class="flex items-center gap-2">
+          <!-- Facebook -->
+          <a
+            href="https://www.facebook.com/phankhanhlinh93vt"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-2 hover:text-accent"
+            title="Facebook"
+            aria-label="Facebook"
+          >
+            <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+              <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.6 5H18V0h-3.808C10.592 0 9 1.583 9 4.615V8z" />
+            </svg>
+          </a>
 
-    <div class="hr-line"></div>
+          <!-- TikTok -->
+          <a
+            href="https://www.tiktok.com/@palinofficial"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-2 hover:text-accent"
+            title="TikTok"
+            aria-label="TikTok"
+          >
+            <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-1.01V14.5c0 1.9-.53 3.75-1.57 5.29-1.28 1.9-3.35 3.2-5.63 3.67-1.12.23-2.28.25-3.41.05-2.22-.38-4.24-1.6-5.55-3.41-1.32-1.81-1.74-4.14-1.17-6.32.57-2.19 2.05-4 4.07-4.99 1.25-.61 2.65-.89 4.04-.84.03 1.39.02 2.78.02 4.17-.7-.03-1.42.06-2.08.31-1.01.39-1.79 1.23-2.12 2.27-.34 1.05-.14 2.23.53 3.12.67.89 1.77 1.41 2.89 1.4 1.05-.01 2.06-.5 2.69-1.34.45-.6.67-1.36.67-2.12V.02h2.93z" />
+            </svg>
+          </a>
+
+          <!-- Gmail -->
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=phankhanhlinh1993xdvt@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="p-2 hover:text-accent"
+            title="Gmail"
+            aria-label="Gmail"
+          >
+            <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+              <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
 
     {
       featuredPosts.length > 0 && (
-        <>
-          <section id="featured">
-            <h2>Featured</h2>
-            <ul>
-              {featuredPosts.map(({ data, slug }) => (
-                <Card
-                  href={`/posts/${slug}/`}
-                  frontmatter={data}
-                  secHeading={false}
-                />
-              ))}
-            </ul>
-          </section>
-          {recentPosts.length > 0 && <div class="hr-line"></div>}
-        </>
+        <section
+          id="featured"
+          class:list={[
+            "pt-12 pb-6",
+            { "border-border border-b": recentPosts.length > 0 },
+          ]}
+        >
+          <h2 class="text-2xl font-semibold tracking-wide">
+            {t.home.featured}
+          </h2>
+          <ul>
+            {featuredPosts.map(post => (
+              <Card variant="h3" {...post} />
+            ))}
+          </ul>
+        </section>
       )
     }
 
     {
       recentPosts.length > 0 && (
-        <section id="recent-posts">
-          <h2>Recent Posts</h2>
+        <section id="recent-posts" class="pt-12 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">
+            {t.home.recentPosts}
+          </h2>
           <ul>
             {recentPosts.map(
-              ({ data, slug }, index) =>
-                index < SITE.postPerIndex && (
-                  <Card
-                    href={`/posts/${slug}/`}
-                    frontmatter={data}
-                    secHeading={false}
-                  />
+              (post, index) =>
+                index < postsConfig.perIndex && (
+                  <Card variant="h3" {...post} />
                 )
             )}
           </ul>
@@ -110,58 +151,12 @@ const socialCount = SOCIALS.filter(social => social.active).length;
       )
     }
 
-    <div class="all-posts-btn-wrapper">
-      <LinkButton href="/posts/">
-        All Posts
-        <svg xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-          ></path>
-        </svg>
+    <div class="all-posts-btn-wrapper my-8 text-center">
+      <LinkButton href={getRelativeLocaleUrl(locale, "posts")}>
+        {t.home.allPosts}
+        <IconArrowRight class="inline-block stroke-2 rtl:rotate-180" />
       </LinkButton>
     </div>
   </main>
-
   <Footer />
 </Layout>
-
-<style>
-  /* ===== Hero Section ===== */
-  #hero {
-    @apply pb-6 pt-8;
-  }
-  #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
-  }
-  #hero .rss-link {
-    @apply mb-6 inline-block;
-  }
-  #hero .rss-icon {
-    @apply mb-2 h-6 w-6 scale-110 fill-skin-accent sm:mb-3 sm:scale-125;
-  }
-  #hero p {
-    @apply my-2;
-  }
-  .social-wrapper {
-    @apply mt-4 flex flex-col sm:flex-row sm:items-center;
-  }
-  .social-links {
-    @apply mr-2 mb-1 whitespace-nowrap sm:mb-0;
-  }
-
-  /* ===== Featured & Recent Posts Sections ===== */
-  #featured,
-  #recent-posts {
-    @apply pb-6 pt-12;
-  }
-  #featured h2,
-  #recent-posts h2 {
-    @apply text-2xl font-semibold tracking-wide;
-  }
-  .all-posts-btn-wrapper {
-    @apply my-8 text-center;
-  }
-  .hr-line {
-    @apply border-b border-skin-line my-4;
-  }
-</style>
