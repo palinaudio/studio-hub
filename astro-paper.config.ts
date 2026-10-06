@@ -24,23 +24,7 @@ export default defineAstroPaperConfig({
     },
     search: "pagefind",
   },
-  socials: [
-    {
-      name: "facebook",
-      url: "https://www.facebook.com/phankhanhlinh93vt",
-      active: true,
-    },
-    {
-      name: "tiktok",
-      url: "https://www.tiktok.com/@palinofficial",
-      active: true,
-    },
-    {
-      name: "mail",
-      url: "https://mail.google.com/mail/?view=cm&fs=1&to=phankhanhlinh1993xdvt@gmail.com",
-      active: true,
-    },
-  ],
+  socials: [],
   shareLinks: [
     { name: "whatsapp", url: "https://wa.me/?text=" },
     { name: "facebook", url: "https://www.facebook.com/sharer.php?u=" },
