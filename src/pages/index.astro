@@ -26,105 +26,139 @@ const homePath = getRelativeLocaleUrl(locale, "");
 
 <Layout>
   <Header />
-  <main id="main-content" data-layout="index" data-home-path={homePath}>
-    <section id="hero" class="border-border border-b pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        PaLin Studio
-      </h1>
-      <a
-        target="_blank"
-        href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/rss.xml`}
-        class="inline-block"
-        aria-label="RSS Feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="stroke-accent scale-125 stroke-3 rtl:rotate-90"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
+  <main id="main-content" data-layout="index" data-home-path={homePath} class="mx-auto max-w-4xl px-4">
+    <!-- Hero Section: Responsive 2 cột trên Desktop, 1 cột trên Mobile -->
+    <section id="hero" class="border-border border-b pt-8 pb-8">
+      <div class="flex flex-col-reverse items-center justify-between gap-8 md:flex-row md:items-start">
+        
+        <!-- Cột trái: Văn bản & Call-to-action -->
+        <div class="w-full md:w-3/5">
+          <div class="flex items-center gap-3">
+            <h1 class="text-3xl font-extrabold tracking-tight sm:text-5xl">
+              PaLin Studio
+            </h1>
+            <a
+              target="_blank"
+              href={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/rss.xml`}
+              class="inline-block"
+              aria-label="RSS Feed"
+              title="RSS Feed"
+            >
+              <IconRss
+                width={20}
+                height={20}
+                class="stroke-accent scale-125 stroke-3 rtl:rotate-90"
+              />
+              <span class="sr-only">RSS Feed</span>
+            </a>
+          </div>
 
-      <p class="my-2 text-base leading-relaxed">
-        Nơi đam mê âm thanh giao thoa cùng chuẩn mực kỹ thuật phòng thu. Tôi là <strong>PaLin</strong> — Music Producer, DJ và Sound Engineer. Tại đây, tôi chia sẻ các đánh giá chuyên sâu về audio plugins, bí quyết mixing & mastering thực chiến, cùng những giải pháp tối ưu chất âm analog đỉnh cao cho cộng đồng làm nhạc.
-      </p>
+          <!-- Badges định vị thương hiệu -->
+          <div class="mt-3 flex flex-wrap gap-2 text-xs font-medium text-skin-base">
+            <span class="rounded-md border border-border bg-skin-card px-2.5 py-1">Music Producer</span>
+            <span class="rounded-md border border-border bg-skin-card px-2.5 py-1">DJ</span>
+            <span class="rounded-md border border-border bg-skin-card px-2.5 py-1">Sound Engineer</span>
+          </div>
 
-      <p class="my-3 font-medium">
-        Liên hệ tư vấn / Zalo:
-        <a
-          href="https://zalo.me/0966383433"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-accent underline decoration-dashed underline-offset-4 hover:opacity-80"
-        >
-          0966.383.433
-        </a>
-      </p>
+          <!-- Đoạn giới thiệu tối ưu E-E-A-T -->
+          <p class="mt-4 text-base leading-relaxed text-skin-base/90">
+            Nơi đam mê âm thanh giao thoa cùng chuẩn mực kỹ thuật phòng thu. Tôi là <strong>PaLin</strong> — Music Producer, DJ và Sound Engineer. Tại đây, tôi chia sẻ các đánh giá chuyên sâu về audio plugins, bí quyết mixing & mastering thực chiến, cùng những giải pháp tối ưu chất âm analog đỉnh cao cho cộng đồng làm nhạc.
+          </p>
 
-      <div class="mt-4 flex max-sm:flex-col sm:items-center">
-        <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">
-          Social Links:
+          <!-- Nút bấm Zalo chuyên nghiệp & Cụm Social -->
+          <div class="mt-6 flex flex-wrap items-center gap-4">
+            <a
+              href="https://zalo.me/0966383433"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-skin-inverted shadow-sm transition hover:opacity-90 active:scale-95"
+            >
+              <svg class="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.92 1.455 5.534 3.737 7.234L5 22l4.02-1.34c.95.27 1.948.418 2.98.418 5.523 0 10-4.145 10-9.258C22 6.145 17.523 2 12 2z"/>
+              </svg>
+              Tư vấn Zalo: 0966.383.433
+            </a>
+
+            <!-- Social Links chuẩn tỉ lệ -->
+            <div class="flex items-center gap-1 border-border border-l pl-4">
+              <!-- Facebook -->
+              <a
+                href="https://www.facebook.com/phankhanhlinh93vt"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-2 text-skin-base hover:text-accent"
+                title="Facebook"
+                aria-label="Facebook"
+              >
+                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.6 5H18V0h-3.808C10.592 0 9 1.583 9 4.615V8z" />
+                </svg>
+              </a>
+
+              <!-- TikTok -->
+              <a
+                href="https://www.tiktok.com/@palinofficial"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-2 text-skin-base hover:text-accent"
+                title="TikTok"
+                aria-label="TikTok"
+              >
+                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-1.01V14.5c0 1.9-.53 3.75-1.57 5.29-1.28 1.9-3.35 3.2-5.63 3.67-1.12.23-2.28.25-3.41.05-2.22-.38-4.24-1.6-5.55-3.41-1.32-1.81-1.74-4.14-1.17-6.32.57-2.19 2.05-4 4.07-4.99 1.25-.61 2.65-.89 4.04-.84.03 1.39.02 2.78.02 4.17-.7-.03-1.42.06-2.08.31-1.01.39-1.79 1.23-2.12 2.27-.34 1.05-.14 2.23.53 3.12.67.89 1.77 1.41 2.89 1.4 1.05-.01 2.06-.5 2.69-1.34.45-.6.67-1.36.67-2.12V.02h2.93z" />
+                </svg>
+              </a>
+
+              <!-- Gmail Web Link -->
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=phankhanhlinh1993xdvt@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-2 text-skin-base hover:text-accent"
+                title="Gửi Gmail"
+                aria-label="Gmail"
+              >
+                <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="flex items-center gap-2">
-          <!-- Facebook -->
-          <a
-            href="https://www.facebook.com/phankhanhlinh93vt"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="p-2 hover:text-accent"
-            title="Facebook"
-            aria-label="Facebook"
-          >
-            <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-              <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.6 5H18V0h-3.808C10.592 0 9 1.583 9 4.615V8z" />
-            </svg>
-          </a>
 
-          <!-- TikTok -->
-          <a
-            href="https://www.tiktok.com/@palinofficial"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="p-2 hover:text-accent"
-            title="TikTok"
-            aria-label="TikTok"
-          >
-            <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-1.01V14.5c0 1.9-.53 3.75-1.57 5.29-1.28 1.9-3.35 3.2-5.63 3.67-1.12.23-2.28.25-3.41.05-2.22-.38-4.24-1.6-5.55-3.41-1.32-1.81-1.74-4.14-1.17-6.32.57-2.19 2.05-4 4.07-4.99 1.25-.61 2.65-.89 4.04-.84.03 1.39.02 2.78.02 4.17-.7-.03-1.42.06-2.08.31-1.01.39-1.79 1.23-2.12 2.27-.34 1.05-.14 2.23.53 3.12.67.89 1.77 1.41 2.89 1.4 1.05-.01 2.06-.5 2.69-1.34.45-.6.67-1.36.67-2.12V.02h2.93z" />
-            </svg>
-          </a>
-
-          <!-- Gmail -->
-          <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=phankhanhlinh1993xdvt@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="p-2 hover:text-accent"
-            title="Gmail"
-            aria-label="Gmail"
-          >
-            <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
-              <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
-            </svg>
-          </a>
+        <!-- Cột phải: Chân dung Hero chuẩn Retina (Tối ưu CLS & LCP) -->
+        <div class="flex w-full justify-center md:w-2/5 md:justify-end">
+          <div class="relative">
+            <img
+              src="/palin-portrait.webp"
+              alt="PaLin - Music Producer, DJ & Sound Engineer"
+              width="1000"
+              height="1000"
+              fetchpriority="high"
+              loading="eager"
+              decoding="async"
+              class="h-44 w-44 rounded-2xl border-2 border-border object-cover shadow-lg sm:h-52 sm:w-52 md:h-60 md:w-60"
+            />
+          </div>
         </div>
+
       </div>
     </section>
 
+    <!-- Featured Section -->
     {
       featuredPosts.length > 0 && (
         <section
           id="featured"
           class:list={[
-            "pt-12 pb-6",
+            "pt-10 pb-6",
             { "border-border border-b": recentPosts.length > 0 },
           ]}
         >
-          <h2 class="text-2xl font-semibold tracking-wide">
+          <h2 class="text-xl font-bold tracking-wide sm:text-2xl">
             {t.home.featured}
           </h2>
-          <ul>
+          <ul class="mt-4 space-y-4">
             {featuredPosts.map(post => (
               <Card variant="h3" {...post} />
             ))}
@@ -133,13 +167,14 @@ const homePath = getRelativeLocaleUrl(locale, "");
       )
     }
 
+    <!-- Recent Posts Section -->
     {
       recentPosts.length > 0 && (
-        <section id="recent-posts" class="pt-12 pb-6">
-          <h2 class="text-2xl font-semibold tracking-wide">
+        <section id="recent-posts" class="pt-10 pb-6">
+          <h2 class="text-xl font-bold tracking-wide sm:text-2xl">
             {t.home.recentPosts}
           </h2>
-          <ul>
+          <ul class="mt-4 space-y-4">
             {recentPosts.map(
               (post, index) =>
                 index < postsConfig.perIndex && (
